@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ali Bahr — Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d0d0d;
+      --bg-card:   #141414;
+      --bg-hover:  #1a1a1a;
+      --border:    #222222;
+      --orange:    #f97316;
+      --orange-dim:#c25a0e;
+      --text:      #e8e8e8;
+      --muted:     #777777;
+      --faint:     #333333;
+      --mono:      'JetBrains Mono', monospace;
+      --sans:      'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5vw;
+      height: 56px;
+    }
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--orange);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── LAYOUT ── */
+    .section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 80px 5vw;
+    }
+    .section + .section {
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── HERO ── */
+    #hero {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--orange);
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: clamp(38px, 6vw, 62px);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+    h1 span { color: var(--orange); }
+    .hero-sub {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: background 0.15s, color 0.15s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--orange);
+      color: #000;
+    }
+    .btn-primary:hover { background: #fb923c; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { background: var(--bg-hover); border-color: #444; }
+
+    /* stats row */
+    .stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .stat-item {}
+    .stat-num {
+      font-size: 28px;
+      font-weight: 600;
+      color: #fff;
+      font-family: var(--mono);
+    }
+    .stat-num span { color: var(--orange); }
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* ── SECTION HEADINGS ── */
+    .sec-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 26px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.01em;
+      margin-bottom: 36px;
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0 40px;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: 1px solid var(--border); }
+    .exp-meta {}
+    .exp-company {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--orange);
+      margin-bottom: 4px;
+    }
+    .exp-period {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .exp-role {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .exp-bullets li {
+      font-size: 14px;
+      color: var(--muted);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .exp-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 5px;
+      height: 1px;
+      background: var(--orange);
+    }
+    .exp-bullets li strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+    }
+    .tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 3px 9px;
+      border-radius: 4px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .proj-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .proj-card:hover {
+      border-color: var(--orange);
+      background: var(--bg-hover);
+    }
+    .proj-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .proj-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .proj-arrow {
+      font-size: 14px;
+      color: var(--faint);
+      flex-shrink: 0;
+      transition: color 0.15s;
+    }
+    .proj-card:hover .proj-arrow { color: var(--orange); }
+    .proj-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+    .proj-highlight {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--orange);
+      letter-spacing: 0.02em;
+    }
+    .proj-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 4px;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .skill-group {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+    .skill-group-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .skill-pill {
+      font-size: 12px;
+      color: var(--text);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* ── CP ── */
+    .cp-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .cp-num {
+      font-family: var(--mono);
+      font-size: 48px;
+      font-weight: 600;
+      color: var(--orange);
+      line-height: 1;
+    }
+    .cp-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .cp-desc strong { color: var(--text); font-weight: 500; }
+
+    /* ── CONTACT ── */
+    #contact { text-align: center; padding-bottom: 100px; }
+    #contact h2 { margin-bottom: 12px; }
+    .contact-sub {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 32px;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 24px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--faint);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      .exp-item { grid-template-columns: 1fr; gap: 8px; }
+      .exp-meta { display: flex; gap: 16px; align-items: baseline; }
+      .nav-links { display: none; }
+      .stats { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="#hero">ali.bahr</a>
+    <ul class="nav-links">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="section" id="hero">
+    <p class="hero-eyebrow">// software engineer</p>
+    <h1>Building systems<br>that <span>actually perform.</span></h1>
+    <p class="hero-sub">
+      Senior Computer Engineering student at Cairo University (GPA 3.7).
+      I work across backend systems, AI pipelines, and data-intensive infrastructure —
+      with a bias toward measurable results.
+    </p>
+    <div class="hero-cta">
+      <a href="mailto:alibahr313@gmail.com" class="btn btn-primary">Get in touch</a>
+      <a href="https://github.com/ali-bahr" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+      <a href="https://www.linkedin.com/in/ali-bahr-50233a262/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+    </div>
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-num">70<span>→97%</span></div>
+        <div class="stat-label">Classification accuracy</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">9s<span>→300ms</span></div>
+        <div class="stat-label">Page load time</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">20<span>M+</span></div>
+        <div class="stat-label">Vectors, sub-second retrieval</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">1500<span>+</span></div>
+        <div class="stat-label">Problems solved (CP)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section" id="experience">
+    <p class="sec-label">// experience</p>
+    <h2>Where I've worked</h2>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-company">Raisa Energy</div>
+        <div class="exp-period">Jul – Oct 2025</div>
+      </div>
+      <div>
+        <div class="exp-role">Software Engineering Intern</div>
+        <ul class="exp-bullets">
+          <li>Built a <strong>RAG pipeline</strong> with Azure AI Search + OpenAI embeddings to auto-classify support tickets — accuracy jumped from <strong>70% → 97%</strong>, cutting manual processing costs by <strong>80%</strong>.</li>
+          <li>Designed a classification prompt routing tickets by urgency and responsible team, integrated into a Power Automate pipeline.</li>
+          <li>Introduced <strong>cursor-based pagination</strong> across all API resources — page load dropped from <strong>~9s → under 300ms</strong>.</li>
+          <li>Migrated filtering, sorting, and search from frontend to backend with a reusable, generic query-building architecture.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">ASP.NET Core</span>
+          <span class="tag">EF Core</span>
+          <span class="tag">SQL Server</span>
+          <span class="tag">OpenAI</span>
+          <span class="tag">Azure AI Search</span>
+          <span class="tag">RAG</span>
+          <span class="tag">Power Automate</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-company">TCCD Cairo University</div>
+        <div class="exp-period">Aug 2024 – Aug 2025</div>
+      </div>
+      <div>
+        <div class="exp-role">Backend Member, IT Committee</div>
+        <ul class="exp-bullets">
+          <li>Built an event registration feature serving <strong>10,000+ attendees</strong>.</li>
+          <li>Implemented secure QR code ticket validation with <strong>role-based authentication</strong> for real-time event access control.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-company">Scale AI</div>
+        <div class="exp-period">Jun – Aug 2023</div>
+      </div>
+      <div>
+        <div class="exp-role">Competitive Coder</div>
+        <ul class="exp-bullets">
+          <li>Developed algorithms for <strong>10+ hard programming problems</strong> to generate training data for AI models.</li>
+          <li>Created <strong>80+ test cases</strong> validating correctness and edge-case robustness.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section" id="projects">
+    <p class="sec-label">// projects</p>
+    <h2>Things I've built</h2>
+    <div class="projects-grid">
+
+      <a class="proj-card" href="https://github.com/ali-bahr" target="_blank" rel="noopener">
+        <div class="proj-header">
+          <div class="proj-name">Signfy</div>
+          <div class="proj-arrow">↗</div>
+        </div>
+        <p class="proj-desc">Real-time Arabic Sign Language recognition using pose detection and custom ML models for gesture-to-text translation.</p>
+        <div class="proj-highlight">Graduation project · In progress</div>
+        <div class="proj-stack">
+          <span class="tag">Python</span><span class="tag">MediaPipe</span><span class="tag">ML</span>
+        </div>
+      </a>
+
+      <a class="proj-card" href="https://github.com/ali-bahr/VecDB" target="_blank" rel="noopener">
+        <div class="proj-header">
+          <div class="proj-name">VecDB</div>
+          <div class="proj-arrow">↗</div>
+        </div>
+        <p class="proj-desc">High-performance vector database scaling to 20M vectors with sub-second retrieval and perfect accuracy. Custom 2-Level IVF structure.</p>
+        <div class="proj-highlight">20M vectors · sub-second latency</div>
+        <div class="proj-stack">
+          <span class="tag">Python</span><span class="tag">Algorithms</span><span class="tag">HNSW</span><span class="tag">IVF</span>
+        </div>
+      </a>
+
+      <a class="proj-card" href="https://github.com/ali-bahr/ExploreX" target="_blank" rel="noopener">
+        <div class="proj-header">
+          <div class="proj-name">ExploreX</div>
+          <div class="proj-arrow">↗</div>
+        </div>
+        <p class="proj-desc">Search engine with crawling, indexing, ranking, and phrase search. Parallel processing cut response time from 9s to under 1s.</p>
+        <div class="proj-highlight">9s → &lt;1s response time</div>
+        <div class="proj-stack">
+          <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">MongoDB</span>
+        </div>
+      </a>
+
+      <a class="proj-card" href="https://github.com/TeleGrammy/backend" target="_blank" rel="noopener">
+        <div class="proj-header">
+          <div class="proj-name">Telegrammy</div>
+          <div class="proj-arrow">↗</div>
+        </div>
+        <p class="proj-desc">Telegram clone backend — 7+ modules including real-time messaging, voice calls, stories, and privacy management. 80%+ test coverage.</p>
+        <div class="proj-highlight">80%+ test coverage</div>
+        <div class="proj-stack">
+          <span class="tag">Node.js</span><span class="tag">Socket.io</span><span class="tag">WebRTC</span><span class="tag">MongoDB</span>
+        </div>
+      </a>
+
+      <a class="proj-card" href="https://github.com/ali-bahr/CarValuate" target="_blank" rel="noopener">
+        <div class="proj-header">
+          <div class="proj-name">CarValuate</div>
+          <div class="proj-arrow">↗</div>
+        </div>
+        <p class="proj-desc">End-to-end car price classifier trained on scraped Egyptian market data. Production-grade practices: CI/CD, Pytest, Poetry, Makefile.</p>
+        <div class="proj-highlight">XGBoost · LightGBM · SVM</div>
+        <div class="proj-stack">
+          <span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">GitHub Actions</span>
+        </div>
+      </a>
+
+      <a class="proj-card" href="https://github.com/ali-bahr/Goalzo-Analytics" target="_blank" rel="noopener">
+        <div class="proj-header">
+          <div class="proj-name">Goalzo Analytics</div>
+          <div class="proj-arrow">↗</div>
+        </div>
+        <p class="proj-desc">Big data analytics pipeline processing 5.7M+ records. K-Means clustering from scratch, EDA on 93,000+ professional players.</p>
+        <div class="proj-highlight">5.7M+ records processed</div>
+        <div class="proj-stack">
+          <span class="tag">PySpark</span><span class="tag">MapReduce</span><span class="tag">K-Means</span>
+        </div>
+      </a>
+
+      <a class="proj-card" href="https://github.com/ali-bahr/PassThru" target="_blank" rel="noopener">
+        <div class="proj-header">
+          <div class="proj-name">PassThru</div>
+          <div class="proj-arrow">↗</div>
+        </div>
+        <p class="proj-desc">Egyptian license plate recognition under real-world conditions. Multi-backend: HOG + Random Forest, custom deep learning, and classical OCR.</p>
+        <div class="proj-highlight">3 OCR backends benchmarked</div>
+        <div class="proj-stack">
+          <span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">Streamlit</span>
+        </div>
+      </a>
+
+      <a class="proj-card" href="https://github.com/ali-bahr/ScheduVerse" target="_blank" rel="noopener">
+        <div class="proj-header">
+          <div class="proj-name">ScheduVerse</div>
+          <div class="proj-arrow">↗</div>
+        </div>
+        <p class="proj-desc">Multi-algorithm OS scheduler managing processes with varying time and memory requirements. Semaphores and advanced IPC techniques.</p>
+        <div class="proj-highlight">OS internals · Linux</div>
+        <div class="proj-stack">
+          <span class="tag">C</span><span class="tag">OS Concepts</span><span class="tag">IPC</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section" id="skills">
+    <p class="sec-label">// skills</p>
+    <h2>Technologies</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-label">Languages</div>
+        <div class="skill-list">
+          <span class="skill-pill">C++</span>
+          <span class="skill-pill">C</span>
+          <span class="skill-pill">C#</span>
+          <span class="skill-pill">Java</span>
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">TypeScript</span>
+          <span class="skill-pill">SQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Frameworks</div>
+        <div class="skill-list">
+          <span class="skill-pill">ASP.NET Core</span>
+          <span class="skill-pill">Node.js</span>
+          <span class="skill-pill">Express.js</span>
+          <span class="skill-pill">Spring Boot</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Databases</div>
+        <div class="skill-list">
+          <span class="skill-pill">SQL Server</span>
+          <span class="skill-pill">PostgreSQL</span>
+          <span class="skill-pill">MongoDB</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">AI / Data</div>
+        <div class="skill-list">
+          <span class="skill-pill">OpenAI</span>
+          <span class="skill-pill">Azure AI Search</span>
+          <span class="skill-pill">RAG</span>
+          <span class="skill-pill">Embeddings</span>
+          <span class="skill-pill">PySpark</span>
+          <span class="skill-pill">scikit-learn</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Tooling</div>
+        <div class="skill-list">
+          <span class="skill-pill">Git</span>
+          <span class="skill-pill">Linux</span>
+          <span class="skill-pill">Docker</span>
+          <span class="skill-pill">Postman</span>
+          <span class="skill-pill">GitHub Actions</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 48px;">
+      <p class="sec-label">// competitive programming</p>
+      <div class="cp-block">
+        <div class="cp-num">1500+</div>
+        <div class="cp-desc">
+          Problems solved across Codeforces, LeetCode, and other judges.<br>
+          <strong>ECPC qualifier 2023, 2024, and 2025</strong> — Egyptian Collegiate Programming Championship.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="section" id="contact">
+    <p class="sec-label">// contact</p>
+    <h2>Let's talk</h2>
+    <p class="contact-sub">
+      Open to backend, AI engineering, and full-stack roles.<br>Available from July 2026.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:alibahr313@gmail.com" class="btn btn-primary">alibahr313@gmail.com</a>
+      <a href="https://www.linkedin.com/in/ali-bahr-50233a262/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      <a href="https://github.com/ali-bahr" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+    </div>
+  </div>
+
+  <footer>
+    Built by Ali Bahr &nbsp;·&nbsp; ali-bahr.github.io
+  </footer>
+
+</body>
+</html>
