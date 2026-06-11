@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ali Bahr — Software Engineer</title>
+  <title>Ali Bahr | Software Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -165,21 +165,26 @@
     }
 
     /* ── SECTION HEADINGS ── */
-    .sec-label {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 10px;
-    }
     h2 {
-      font-size: 26px;
-      font-weight: 600;
-      color: #fff;
-      letter-spacing: -0.01em;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--orange);
+      letter-spacing: 0.01em;
       margin-bottom: 36px;
+      font-family: var(--mono);
     }
+
+    .sec-label {
+      font-family: var(--sans);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 8px;
+      text-transform: none;
+      line-height: 1.1;
+    }
+    .sec-label .orange { color: var(--orange); }
 
     /* ── EXPERIENCE ── */
     .exp-item {
@@ -416,54 +421,54 @@
 
   <!-- HERO -->
   <div class="section" id="hero">
-    <p class="hero-eyebrow">// software engineer</p>
-    <h1>Building systems<br>that <span>actually perform.</span></h1>
+    <p class="hero-eyebrow">// Building systems that <span style="color:var(--orange)">actually perform.</span></p>
+    <h1>Ali <span>Bahr.</span><br>Software Engineer.</h1>
     <p class="hero-sub">
       Senior Computer Engineering student at Cairo University (GPA 3.7).
-      I work across backend systems, AI pipelines, and data-intensive infrastructure —
+      I work across backend systems, AI pipelines, and data-intensive infrastructure,
       with a bias toward measurable results.
     </p>
     <div class="hero-cta">
-      <a href="mailto:alibahr313@gmail.com" class="btn btn-primary">Get in touch</a>
-      <a href="https://github.com/ali-bahr" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
-      <a href="https://www.linkedin.com/in/ali-bahr-50233a262/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      <a href="mailto:alibahr313@gmail.com" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Get in touch</a>
+      <a href="https://github.com/ali-bahr" target="_blank" rel="noopener" class="btn btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>GitHub</a>
+      <a href="https://www.linkedin.com/in/ali-bahr-50233a262/" target="_blank" rel="noopener" class="btn btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
     </div>
     <div class="stats">
       <div class="stat-item">
         <div class="stat-num">70<span>→97%</span></div>
-        <div class="stat-label">Classification accuracy</div>
+        <div class="stat-label">Support ticket classification — RAG pipeline at Raisa Energy</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">9s<span>→300ms</span></div>
-        <div class="stat-label">Page load time</div>
+        <div class="stat-label">API page load reduction at Raisa Energy after introducing cursor-based pagination</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">20<span>M+</span></div>
-        <div class="stat-label">Vectors, sub-second retrieval</div>
+        <div class="stat-label">Vectors indexed in VecDB with sub-second retrieval</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">1500<span>+</span></div>
-        <div class="stat-label">Problems solved (CP)</div>
+        <div class="stat-label">Algo problems solved across different online judges</div>
       </div>
     </div>
   </div>
 
   <!-- EXPERIENCE -->
   <div class="section" id="experience">
-    <p class="sec-label">// experience</p>
-    <h2>Where I've worked</h2>
+    <p class="sec-label">Experience.</p>
+    <h2>// where i've worked</h2>
 
     <div class="exp-item">
       <div class="exp-meta">
         <div class="exp-company">Raisa Energy</div>
-        <div class="exp-period">Jul – Oct 2025</div>
+        <div class="exp-period">Jul to Oct 2025</div>
       </div>
       <div>
         <div class="exp-role">Software Engineering Intern</div>
         <ul class="exp-bullets">
-          <li>Built a <strong>RAG pipeline</strong> with Azure AI Search + OpenAI embeddings to auto-classify support tickets — accuracy jumped from <strong>70% → 97%</strong>, cutting manual processing costs by <strong>80%</strong>.</li>
+          <li>Built a <strong>RAG pipeline</strong> with Azure AI Search and OpenAI embeddings to auto-classify support tickets. Accuracy jumped from <strong>70% to 97%</strong>, cutting manual processing costs by <strong>80%</strong>.</li>
           <li>Designed a classification prompt routing tickets by urgency and responsible team, integrated into a Power Automate pipeline.</li>
-          <li>Introduced <strong>cursor-based pagination</strong> across all API resources — page load dropped from <strong>~9s → under 300ms</strong>.</li>
+          <li>Introduced <strong>cursor-based pagination</strong> across all API resources. Page load dropped from <strong>~9s to under 300ms</strong>.</li>
           <li>Migrated filtering, sorting, and search from frontend to backend with a reusable, generic query-building architecture.</li>
         </ul>
         <div class="exp-tags">
@@ -481,7 +486,7 @@
     <div class="exp-item">
       <div class="exp-meta">
         <div class="exp-company">TCCD Cairo University</div>
-        <div class="exp-period">Aug 2024 – Aug 2025</div>
+        <div class="exp-period">Aug 2024 to Aug 2025</div>
       </div>
       <div>
         <div class="exp-role">Backend Member, IT Committee</div>
@@ -495,7 +500,7 @@
     <div class="exp-item">
       <div class="exp-meta">
         <div class="exp-company">Scale AI</div>
-        <div class="exp-period">Jun – Aug 2023</div>
+        <div class="exp-period">Jun to Aug 2023</div>
       </div>
       <div>
         <div class="exp-role">Competitive Coder</div>
@@ -509,8 +514,8 @@
 
   <!-- PROJECTS -->
   <div class="section" id="projects">
-    <p class="sec-label">// projects</p>
-    <h2>Things I've built</h2>
+    <p class="sec-label">Projects.</p>
+    <h2>// things i've built</h2>
     <div class="projects-grid">
 
       <a class="proj-card" href="https://github.com/ali-bahr" target="_blank" rel="noopener">
@@ -554,7 +559,7 @@
           <div class="proj-name">Telegrammy</div>
           <div class="proj-arrow">↗</div>
         </div>
-        <p class="proj-desc">Telegram clone backend — 7+ modules including real-time messaging, voice calls, stories, and privacy management. 80%+ test coverage.</p>
+        <p class="proj-desc">Telegram clone backend with 7+ modules including real-time messaging, voice calls, stories, and privacy management. 80%+ test coverage.</p>
         <div class="proj-highlight">80%+ test coverage</div>
         <div class="proj-stack">
           <span class="tag">Node.js</span><span class="tag">Socket.io</span><span class="tag">WebRTC</span><span class="tag">MongoDB</span>
@@ -609,13 +614,49 @@
         </div>
       </a>
 
+      <a class="proj-card" href="https://github.com/ali-bahr/Pipelined_AMD_Ryzen_26" target="_blank" rel="noopener">
+        <div class="proj-header">
+          <div class="proj-name">Pipelined Processor</div>
+          <div class="proj-arrow">↗</div>
+        </div>
+        <p class="proj-desc">VHDL implementation of a 5-stage pipelined RISC processor (Fetch, Decode, Execute, Memory, Write-back) with a custom ISA. Includes a full assembler and testbench. Computer Architecture course project at Cairo University.</p>
+        <div class="proj-highlight">5-stage pipeline · RISC ISA</div>
+        <div class="proj-stack">
+          <span class="tag">VHDL</span><span class="tag">Computer Architecture</span>
+        </div>
+      </a>
+
+      <a class="proj-card" href="https://github.com/ali-bahr/process-scheduler" target="_blank" rel="noopener">
+        <div class="proj-header">
+          <div class="proj-name">Process Scheduler</div>
+          <div class="proj-arrow">↗</div>
+        </div>
+        <p class="proj-desc">Simulation of a multiprocessor process scheduler with work stealing, process forking, I/O requests, and SIGKILL handling. Built on trees, queues, priority queues, and linked lists; outputs scheduling statistics.</p>
+        <div class="proj-highlight">Multiprocessor · Work stealing</div>
+        <div class="proj-stack">
+          <span class="tag">C++</span><span class="tag">Data Structures</span><span class="tag">OS Concepts</span>
+        </div>
+      </a>
+
+      <a class="proj-card" href="https://github.com/ali-bahr/paint-for-kids" target="_blank" rel="noopener">
+        <div class="proj-header">
+          <div class="proj-name">Paint for Kids</div>
+          <div class="proj-arrow">↗</div>
+        </div>
+        <p class="proj-desc">Educational drawing game for kids with two modes: a Draw Mode for creating, moving, coloring, and saving shapes with undo/redo and recording playback; and a Play Mode where kids identify shapes by type or color for a score.</p>
+        <div class="proj-highlight">OOP · Educational game</div>
+        <div class="proj-stack">
+          <span class="tag">C++</span><span class="tag">CMU Graphics</span><span class="tag">OOP</span>
+        </div>
+      </a>
+
     </div>
   </div>
 
   <!-- SKILLS -->
   <div class="section" id="skills">
-    <p class="sec-label">// skills</p>
-    <h2>Technologies</h2>
+    <p class="sec-label">Skills.</p>
+    <h2>// technologies i work with</h2>
     <div class="skills-grid">
       <div class="skill-group">
         <div class="skill-group-label">Languages</div>
@@ -670,29 +711,19 @@
       </div>
     </div>
 
-    <div style="margin-top: 48px;">
-      <p class="sec-label">// competitive programming</p>
-      <div class="cp-block">
-        <div class="cp-num">1500+</div>
-        <div class="cp-desc">
-          Problems solved across Codeforces, LeetCode, and other judges.<br>
-          <strong>ECPC qualifier 2023, 2024, and 2025</strong> — Egyptian Collegiate Programming Championship.
-        </div>
-      </div>
-    </div>
   </div>
 
   <!-- CONTACT -->
   <div class="section" id="contact">
-    <p class="sec-label">// contact</p>
-    <h2>Let's talk</h2>
+    <p class="sec-label">Contact.</p>
+    <h2>// let's talk</h2>
     <p class="contact-sub">
-      Open to backend, AI engineering, and full-stack roles.<br>Available from July 2026.
+      Open to backend, AI engineering, and full-stack roles.
     </p>
     <div class="contact-links">
-      <a href="mailto:alibahr313@gmail.com" class="btn btn-primary">alibahr313@gmail.com</a>
-      <a href="https://www.linkedin.com/in/ali-bahr-50233a262/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
-      <a href="https://github.com/ali-bahr" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+      <a href="mailto:alibahr313@gmail.com" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>alibahr313@gmail.com</a>
+      <a href="https://www.linkedin.com/in/ali-bahr-50233a262/" target="_blank" rel="noopener" class="btn btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+      <a href="https://github.com/ali-bahr" target="_blank" rel="noopener" class="btn btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>GitHub</a>
     </div>
   </div>
 
