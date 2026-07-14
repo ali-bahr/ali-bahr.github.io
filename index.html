@@ -399,6 +399,17 @@
     }
 
     /* ── MOBILE ── */
+    .proj-filters { display: flex; gap: 10px; margin-bottom: 28px; }
+    .filter-btn {
+      font-family: var(--mono); font-size: 13px; padding: 7px 18px;
+      background: var(--bg-card); color: var(--muted);
+      border: 1px solid var(--border); border-radius: 6px; cursor: pointer;
+      transition: all .15s ease;
+    }
+    .filter-btn:hover { color: var(--text); border-color: #444; }
+    .filter-btn.active { color: var(--orange); border-color: var(--orange); }
+    .proj-card.proj-hidden { display: none; }
+
     @media (max-width: 640px) {
       .exp-item { grid-template-columns: 1fr; gap: 8px; }
       .exp-meta { display: flex; gap: 16px; align-items: baseline; }
@@ -424,14 +435,15 @@
     <p class="hero-eyebrow">// Building systems that <span style="color:var(--orange)">actually perform.</span></p>
     <h1>Ali <span>Bahr.</span><br>Software Engineer.</h1>
     <p class="hero-sub">
-      Fresh Graduate Computer Engineer from Cairo University.
+      Computer Engineering graduate, Cairo University '26.
       I work across backend systems, AI pipelines, and data-intensive infrastructure,
       with a bias toward measurable results.
     </p>
     <div class="hero-cta">
       <a href="mailto:alibahr313@gmail.com" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Get in touch</a>
+      <a href="Ali_Bahr_CV.pdf" target="_blank" rel="noopener" class="btn btn-ghost">Download CV</a>
       <a href="https://github.com/ali-bahr" target="_blank" rel="noopener" class="btn btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>GitHub</a>
-      <a href="https://www.linkedin.com/in/ali-bahr-50233a262/" target="_blank" rel="noopener" class="btn btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+      <a href="https://www.linkedin.com/in/alibahr/" target="_blank" rel="noopener" class="btn btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
     </div>
     <div class="stats">
       <div class="stat-item">
@@ -466,9 +478,10 @@
       <div>
         <div class="exp-role">Software Engineering Intern</div>
         <ul class="exp-bullets">
-          <li>Built a <strong>RAG pipeline</strong> with Azure AI Search and OpenAI embeddings to auto-classify support tickets. Accuracy jumped from <strong>70% to 97%</strong>, cutting manual processing costs by <strong>80%</strong>.</li>
-          <li>Designed a classification prompt routing tickets by urgency and responsible team, integrated into a Power Automate pipeline.</li>
-          <li>Introduced <strong>cursor-based pagination</strong> across all API resources. Page load dropped from <strong>~9s to under 300ms</strong>.</li>
+          <li>Automated support-ticket routing with an <strong>LLM classification system</strong> that assigns tickets by urgency and responsible team, reducing manual processing costs by <strong>80%</strong>.</li>
+          <li>Built a <strong>RAG pipeline</strong> injecting semantically relevant historical tickets as context, pushing classification accuracy from <strong>70% to 97%</strong>.</li>
+          <li>Implemented Azure AI Search as the vector store and built an Azure Function to continuously synchronize the index.</li>
+          <li>Introduced <strong>cursor-based pagination</strong> across all API resources, cutting page load time <strong>~30x</strong> (from ~9s to under 300ms).</li>
           <li>Migrated filtering, sorting, and search from frontend to backend with a reusable, generic query-building architecture.</li>
         </ul>
         <div class="exp-tags">
@@ -489,11 +502,17 @@
         <div class="exp-period">Aug 2024 to Aug 2025</div>
       </div>
       <div>
-        <div class="exp-role">Backend Member, IT Committee</div>
+        <div class="exp-role">Backend Developer, IT Committee</div>
         <ul class="exp-bullets">
           <li>Built an event registration feature serving <strong>10,000+ attendees</strong>.</li>
           <li>Implemented secure QR code ticket validation with <strong>role-based authentication</strong> for real-time event access control.</li>
         </ul>
+        <div class="exp-tags">
+          <span class="tag">C#</span>
+          <span class="tag">.NET</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Clean Architecture</span>
+        </div>
       </div>
     </div>
 
@@ -503,10 +522,10 @@
         <div class="exp-period">Jun to Aug 2023</div>
       </div>
       <div>
-        <div class="exp-role">Competitive Coder</div>
+        <div class="exp-role">Software Engineering Contributor</div>
         <ul class="exp-bullets">
-          <li>Developed algorithms for <strong>10+ hard programming problems</strong> to generate training data for AI models.</li>
-          <li>Created <strong>80+ test cases</strong> validating correctness and edge-case robustness.</li>
+          <li>Authored reference solutions for <strong>10+ competitive programming problems</strong> used as training data for code-generation models.</li>
+          <li>Created <strong>80+ test cases</strong> to validate solution robustness and correctness.</li>
         </ul>
       </div>
     </div>
@@ -516,33 +535,37 @@
   <div class="section" id="projects">
     <p class="sec-label">Projects.</p>
     <h2>// things i've built</h2>
+    <div class="proj-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="backend">Backend</button>
+      <button class="filter-btn" data-filter="ai">AI</button>
+    </div>
     <div class="projects-grid">
 
-      <a class="proj-card" href="https://github.com/ali-bahr" target="_blank" rel="noopener">
+      <div class="proj-card" data-cat="ai">
         <div class="proj-header">
           <div class="proj-name">Signfy</div>
-          <div class="proj-arrow">↗</div>
         </div>
-        <p class="proj-desc">Real-time Arabic Sign Language recognition using pose detection and custom ML models for gesture-to-text translation.</p>
-        <div class="proj-highlight">Graduation project · In progress</div>
+        <p class="proj-desc">Real-time, two-way Arabic Sign Language translation (speech-to-sign and sign-to-speech). Led a 4-engineer team and owned the sign-to-speech pipeline: MediaPipe landmark extraction, motion-gated sign segmentation, RF/TCN classification over a 502-sign vocabulary, Gemini-generated diacritized Arabic, and TTS output.</p>
+        <div class="proj-highlight">Graduation project · 502-sign vocabulary · Private repo</div>
         <div class="proj-stack">
-          <span class="tag">Python</span><span class="tag">MediaPipe</span><span class="tag">ML</span>
+          <span class="tag">Python</span><span class="tag">MediaPipe</span><span class="tag">TCN</span><span class="tag">Gemini API</span><span class="tag">TTS</span>
         </div>
-      </a>
+      </div>
 
-      <a class="proj-card" href="https://github.com/ali-bahr/VecDB" target="_blank" rel="noopener">
+      <a class="proj-card" data-cat="backend ai" href="https://github.com/ali-bahr/VecDB" target="_blank" rel="noopener">
         <div class="proj-header">
           <div class="proj-name">VecDB</div>
           <div class="proj-arrow">↗</div>
         </div>
-        <p class="proj-desc">High-performance vector database scaling to 20M vectors with sub-second retrieval and perfect accuracy. Custom 2-Level IVF structure.</p>
+        <p class="proj-desc">High-performance vector database scaling to 20M vectors with sub-second retrieval and 100% recall. Custom 2-Level IVF structure.</p>
         <div class="proj-highlight">20M vectors · sub-second latency</div>
         <div class="proj-stack">
           <span class="tag">Python</span><span class="tag">Algorithms</span><span class="tag">HNSW</span><span class="tag">IVF</span>
         </div>
       </a>
 
-      <a class="proj-card" href="https://github.com/ali-bahr/ExploreX" target="_blank" rel="noopener">
+      <a class="proj-card" data-cat="backend" href="https://github.com/ali-bahr/ExploreX" target="_blank" rel="noopener">
         <div class="proj-header">
           <div class="proj-name">ExploreX</div>
           <div class="proj-arrow">↗</div>
@@ -554,31 +577,19 @@
         </div>
       </a>
 
-      <a class="proj-card" href="https://github.com/TeleGrammy/backend" target="_blank" rel="noopener">
+      <a class="proj-card" data-cat="backend" href="https://github.com/TeleGrammy/backend" target="_blank" rel="noopener">
         <div class="proj-header">
           <div class="proj-name">Telegrammy</div>
           <div class="proj-arrow">↗</div>
         </div>
-        <p class="proj-desc">Telegram clone backend with 7+ modules including real-time messaging, voice calls, stories, and privacy management. 80%+ test coverage.</p>
+        <p class="proj-desc">Team-built Telegram clone backend. Built the real-time messaging server on an event-driven Socket.io architecture with Redis caching, WebRTC voice and group calls end-to-end, and profile/privacy and stories modules with AWS S3 media uploads. 80%+ test coverage.</p>
         <div class="proj-highlight">80%+ test coverage</div>
         <div class="proj-stack">
-          <span class="tag">Node.js</span><span class="tag">Socket.io</span><span class="tag">WebRTC</span><span class="tag">MongoDB</span>
+          <span class="tag">Node.js</span><span class="tag">Socket.io</span><span class="tag">WebRTC</span><span class="tag">Redis</span><span class="tag">AWS S3</span><span class="tag">MongoDB</span>
         </div>
       </a>
 
-      <a class="proj-card" href="https://github.com/ali-bahr/CarValuate" target="_blank" rel="noopener">
-        <div class="proj-header">
-          <div class="proj-name">CarValuate</div>
-          <div class="proj-arrow">↗</div>
-        </div>
-        <p class="proj-desc">End-to-end car price classifier trained on scraped Egyptian market data. Production-grade practices: CI/CD, Pytest, Poetry, Makefile.</p>
-        <div class="proj-highlight">XGBoost · LightGBM · SVM</div>
-        <div class="proj-stack">
-          <span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">GitHub Actions</span>
-        </div>
-      </a>
-
-      <a class="proj-card" href="https://github.com/ali-bahr/Goalzo-Analytics" target="_blank" rel="noopener">
+      <a class="proj-card" data-cat="ai" href="https://github.com/ali-bahr/Goalzo-Analytics" target="_blank" rel="noopener">
         <div class="proj-header">
           <div class="proj-name">Goalzo Analytics</div>
           <div class="proj-arrow">↗</div>
@@ -590,7 +601,7 @@
         </div>
       </a>
 
-      <a class="proj-card" href="https://github.com/ali-bahr/PassThru" target="_blank" rel="noopener">
+      <a class="proj-card" data-cat="ai" href="https://github.com/ali-bahr/PassThru" target="_blank" rel="noopener">
         <div class="proj-header">
           <div class="proj-name">PassThru</div>
           <div class="proj-arrow">↗</div>
@@ -602,7 +613,7 @@
         </div>
       </a>
 
-      <a class="proj-card" href="https://github.com/ali-bahr/ScheduVerse" target="_blank" rel="noopener">
+      <a class="proj-card" data-cat="backend" href="https://github.com/ali-bahr/ScheduVerse" target="_blank" rel="noopener">
         <div class="proj-header">
           <div class="proj-name">ScheduVerse</div>
           <div class="proj-arrow">↗</div>
@@ -614,7 +625,7 @@
         </div>
       </a>
 
-      <a class="proj-card" href="https://github.com/ali-bahr/Pipelined_AMD_Ryzen_26" target="_blank" rel="noopener">
+      <a class="proj-card" data-cat="" href="https://github.com/ali-bahr/Pipelined_AMD_Ryzen_26" target="_blank" rel="noopener">
         <div class="proj-header">
           <div class="proj-name">Pipelined Processor</div>
           <div class="proj-arrow">↗</div>
@@ -626,7 +637,7 @@
         </div>
       </a>
 
-      <a class="proj-card" href="https://github.com/ali-bahr/process-scheduler" target="_blank" rel="noopener">
+      <a class="proj-card" data-cat="backend" href="https://github.com/ali-bahr/process-scheduler" target="_blank" rel="noopener">
         <div class="proj-header">
           <div class="proj-name">Process Scheduler</div>
           <div class="proj-arrow">↗</div>
@@ -638,7 +649,7 @@
         </div>
       </a>
 
-      <a class="proj-card" href="https://github.com/ali-bahr/paint-for-kids" target="_blank" rel="noopener">
+      <a class="proj-card" data-cat="" href="https://github.com/ali-bahr/paint-for-kids" target="_blank" rel="noopener">
         <div class="proj-header">
           <div class="proj-name">Paint for Kids</div>
           <div class="proj-arrow">↗</div>
@@ -718,11 +729,11 @@
     <p class="sec-label">Contact.</p>
     <h2>// let's talk</h2>
     <p class="contact-sub">
-      Open to backend, AI engineering, and full-stack roles.
+      Open to Backend and AI Engineering roles.
     </p>
     <div class="contact-links">
       <a href="mailto:alibahr313@gmail.com" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>alibahr313@gmail.com</a>
-      <a href="https://www.linkedin.com/in/ali-bahr-50233a262/" target="_blank" rel="noopener" class="btn btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+      <a href="https://www.linkedin.com/in/alibahr/" target="_blank" rel="noopener" class="btn btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
       <a href="https://github.com/ali-bahr" target="_blank" rel="noopener" class="btn btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>GitHub</a>
     </div>
   </div>
@@ -731,5 +742,18 @@
     Built by Ali Bahr &nbsp;·&nbsp; ali-bahr.github.io
   </footer>
 
+<script>
+  document.querySelectorAll('.filter-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var f = btn.getAttribute('data-filter');
+      document.querySelectorAll('.proj-card').forEach(function (card) {
+        var cats = (card.getAttribute('data-cat') || '').split(' ');
+        card.classList.toggle('proj-hidden', f !== 'all' && cats.indexOf(f) === -1);
+      });
+    });
+  });
+</script>
 </body>
 </html>
